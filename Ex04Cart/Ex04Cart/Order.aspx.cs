@@ -21,6 +21,12 @@ namespace Ex04Cart
             }
 
             //get and show product on every load
+            selectedProduct = this.getSelectedProduct();
+            lblName.Text = selectedProduct.Name;
+            lblShortDescription.Text = selectedProduct.ShortDescription;
+            lblLongDescription.Text = selectedProduct.LongDescription;
+            lblUnitPrice.Text = selectedProduct.UnitPrice.ToString("c") + " each";
+            imgProduct.ImageUrl = "Images/Products/" + selectedProduct.ImageFile; 
         }
 
         private Product getSelectedProduct()
@@ -28,7 +34,7 @@ namespace Ex04Cart
             //get row from SqlDataSource based on value in dropdown list
             DataView productsTable = (DataView)
                 SqlDataSource2.Select(DataSourceSelectArguments.Empty);
-            productsTable.RowFilter = string.Format("ProductID = '{0},",
+            productsTable.RowFilter = string.Format("ProductID = '{0}'",
                 ddlProducts.SelectedValue);
             DataRowView row = productsTable[0];
 
