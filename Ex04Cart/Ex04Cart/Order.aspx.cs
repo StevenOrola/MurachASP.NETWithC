@@ -49,5 +49,29 @@ namespace Ex04Cart
 
             return p;
         }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            if(IsValid)
+            {
+                //get cart from session state and selected item from cart
+                CartItemList cart = CartItemList.GetCart();
+                CartItem cartItem = cart[selectedProduct.ProductID];
+
+                //if item isn't in cart, add it; otherwise, increase its quantity
+                if (cartItem == null)
+                {
+                    cart.AddItem(selectedProduct, 
+                        Convert.ToInt32(txtQuantity.Text));
+                }
+
+                else
+                {
+                    cartItem.AddQuantity(Convert.ToInt32(txtQuantity.Text));
+                }
+
+                Response.Redirect("~/Cart.aspx");
+            }
+        }
     }
 }
