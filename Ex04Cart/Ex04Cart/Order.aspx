@@ -22,8 +22,10 @@
                     <div class="form-group">
                         <label class="col-sm-5">Please select a product:</label>
                         <div class="col-sm-6">
-                            <asp:DropDownList ID="ddlProducts" runat="server" CssClass="form-control">
+                            <asp:DropDownList ID="ddlProducts" runat="server" CssClass="form-control" AutoPostBack="True" DataSourceID="SqlDataSource2" DataTextField="Name" DataValueField="ProductID">
                             </asp:DropDownList>
+                            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:HalloweenConnection %>" SelectCommand="SELECT [ProductID], [Name], [ShortDescription], [LongDescription], [CategoryID], [ImageFile], [UnitPrice] FROM [Products] ORDER BY [Name]"></asp:SqlDataSource>
+                                
                         </div>
                     </div>   
                     <div class="form-group">
