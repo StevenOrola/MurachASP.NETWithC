@@ -60,7 +60,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12">
-                            <asp:Button ID="btnAdd" runat="server" Text="Add to Cart" CssClass="btn" />
+                            <asp:Button ID="btnAdd" runat="server" Text="Add to Cart" CssClass="btn" OnClick="btnAdd_Click" />
                             <asp:Button ID="btnCart" runat="server" Text="Go to Cart" 
                                 PostBackUrl="~/Cart.aspx" CausesValidation="False" CssClass="btn" />
                         </div>

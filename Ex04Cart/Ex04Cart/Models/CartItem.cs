@@ -23,10 +23,13 @@ public class CartItem
 
     public string Display()
     {
-        string displayString = string.Format("{0} ({1} at {2})",
+        Decimal totalPrice = Quantity * Product.UnitPrice;
+        String priceFormat = totalPrice.ToString("C");
+        string displayString = string.Format("{0} ({1} @ {2} each = {3})",
             Product.Name, 
             Quantity.ToString(),
-            Product.UnitPrice.ToString("c")
+            Product.UnitPrice.ToString("c"),
+            priceFormat
         );
         return displayString;
     }
